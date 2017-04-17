@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="客户端.View.PrivacyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:客户端.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
+            <Button Name="BackB" FontFamily="Segoe MDL2 Assets" FontSize="24" Background="#FF40D4E2"
+                    Content="&#xE0A6;" Click="BackB_Click"  RelativePanel.AlignLeftWithPanel="True"/>
+            <TextBlock Text="个人信息" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        </RelativePanel>
+
+        <Button Grid.Row="1" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue">
+            <Button.Content>
+                <RelativePanel  Name="headiconR"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
+                    <TextBlock Text="头像" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                       FontSize="24" Margin="10,10,0,10"/>
+                    <Ellipse RelativePanel.AlignRightWithPanel="True"  Height="50" Width="50"
+                             RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,10,10,10" >
+                        <Ellipse.Fill>
+                            <ImageBrush  ImageSource="ms-appx:///Assets/default avatar.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </RelativePanel>
+            </Button.Content>
+        </Button>
+
+        <Button Grid.Row="2" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue">
+            <Button.Content>
+                <RelativePanel  Name="nickNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76" >
+            <TextBlock Text="昵称" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                       FontSize="24" Margin="10,10,0,10"/>
+            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text="1234124"/>
+        </RelativePanel>
+            </Button.Content>
+        </Button>
+
+
+
+        <Button Grid.Row="3" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue">
+            <Button.Content>
+                <RelativePanel  Name="realNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
+            <TextBlock Text="姓名" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                       FontSize="24" Margin="10,10,0,10"/>
+            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text="asd"/>
+        </RelativePanel>
+            </Button.Content>
+        </Button>
+
+        <Button Grid.Row="4" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue" >
+            <Button.Content>
+                <RelativePanel  Name="phonenumberR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
+            <TextBlock Text="手机号" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                       FontSize="24" Margin="10,10,0,10"/>
+            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text="awd"/>
+        </RelativePanel>
+            </Button.Content>
+        </Button>
+
+    </Grid>
+</Page>
