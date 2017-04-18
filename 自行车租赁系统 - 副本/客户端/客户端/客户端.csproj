@@ -100,9 +100,12 @@
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserDatabase.cs" />
     <Compile Include="Models\动态密码.cs" />
+    <Compile Include="Resource\MyContentDialog.xaml.cs">
+      <DependentUpon>MyContentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MainPageViewModels.cs" />
     <Compile Include="ViewModels\NotificationObject.cs" />
-    <Compile Include="View\IndividualPage.xaml.cs">
+    <Compile Include="View\Individual\IndividualPage.xaml.cs">
       <DependentUpon>IndividualPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\InformationPage.xaml.cs">
@@ -115,7 +118,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\PrivacyPage.xaml.cs">
+    <Compile Include="View\Individual\Privacy\NickName.xaml.cs">
+      <DependentUpon>NickName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Individual\Privacy\PrivacyPage.xaml.cs">
       <DependentUpon>PrivacyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RoutePage.xaml.cs">
@@ -152,7 +158,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\IndividualPage.xaml">
+    <Page Include="Resource\MyContentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Individual\IndividualPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,7 +178,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\PrivacyPage.xaml">
+    <Page Include="View\Individual\Privacy\NickName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Individual\Privacy\PrivacyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

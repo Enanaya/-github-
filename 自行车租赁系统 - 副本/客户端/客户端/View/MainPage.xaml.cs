@@ -123,15 +123,7 @@ namespace 客户端
 
                 new MessageDialog(msg.ToString()).ShowAsync();
 
-                #region
-                //string[] lat_lon = bicycle[2].current_location.Split(',');
-                //current_point = new Geopoint(new BasicGeoposition()
-                //{
-                //    Latitude = double.Parse(lat_lon[0]),
-                //    Longitude = double.Parse(lat_lon[1])
-                //});
 
-                #endregion
 
 
                 foreach (var temp in bicycle.Select(temp => current_location_parse(temp.current_location))
@@ -191,6 +183,15 @@ namespace 客户端
 
         private async void AppBarButton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            #region
+            string[] lat_lon = bicycle[2].current_location.Split(',');
+            current_point = new Geopoint(new BasicGeoposition()
+            {
+                Latitude = double.Parse(lat_lon[0]),
+                Longitude = double.Parse(lat_lon[1])
+            });
+
+            #endregion
             await routeCreateAsync(myLocation, current_point);
         }
 

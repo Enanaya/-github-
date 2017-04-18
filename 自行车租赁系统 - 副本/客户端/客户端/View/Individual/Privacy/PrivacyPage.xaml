@@ -5,7 +5,7 @@
     xmlns:local="using:客户端.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -16,6 +16,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
+
 
         <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
             <Button Name="BackB" FontFamily="Segoe MDL2 Assets" FontSize="24" Background="#FF40D4E2"
@@ -42,25 +44,24 @@
                 Background="White" BorderBrush="LightSteelBlue" Click="nickB_Click">
             <Button.Content>
                 <RelativePanel  Name="nickNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76" >
-            <TextBlock Text="昵称" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                    <TextBlock Text="昵称" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock Name="nicknameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    <TextBlock Name="nicknameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
                     Margin="0,10,10,10"  Text="" />
-        </RelativePanel>
+                </RelativePanel>
             </Button.Content>
         </Button>
-
 
 
         <Button Name="nameB" Grid.Row="3" HorizontalAlignment="Stretch" 
                 Background="White" BorderBrush="LightSteelBlue" Click="nameB_Click">
             <Button.Content>
                 <RelativePanel  Name="realNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
-            <TextBlock Text="姓名" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                    <TextBlock Text="姓名" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock Name="nameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    <TextBlock Name="nameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
                     Margin="0,10,10,10"  Text=""/>
-        </RelativePanel>
+                </RelativePanel>
             </Button.Content>
         </Button>
 
@@ -68,11 +69,11 @@
                 Background="White" BorderBrush="LightSteelBlue" Click="phoneB_Click">
             <Button.Content>
                 <RelativePanel  Name="phonenumberR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
-            <TextBlock Text="手机号" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                    <TextBlock Text="手机号" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock Name="phoneText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    <TextBlock Name="phoneText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
                     Margin="0,10,10,10"  Text=""/>
-        </RelativePanel>
+                </RelativePanel>
             </Button.Content>
         </Button>
 

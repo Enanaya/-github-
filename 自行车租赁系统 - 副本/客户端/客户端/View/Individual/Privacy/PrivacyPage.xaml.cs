@@ -1,9 +1,12 @@
 ﻿using SQLite.Net;
 using System.Linq;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using 客户端.Models;
+using 客户端.Resource;
+using 客户端.View.Privacy;
 
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
@@ -74,19 +77,38 @@ namespace 客户端.View
             }
         }
 
-        private void nickB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void nickB_Click(object sender, RoutedEventArgs e)
+        {
+            #region
+            //var contendialog = new ContentDialog()
+            //{
+            //    Content = new MyContentDialog(),
+            //    PrimaryButtonText = "确定",
+            //    SecondaryButtonText = "取消",
+            //    FullSizeDesired = false
+            //};
+            //contendialog.PrimaryButtonClick += (_s, _e) =>
+            //{
+            //};
+            //contendialog.ShowAsync();
+            #endregion
+            Frame.Navigate(typeof(NickName), this_account);
+
+        }
+
+        private void nameB_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void nameB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void phoneB_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void phoneB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            dataload();
         }
     }
 }

@@ -5,10 +5,10 @@
     xmlns:local="using:客户端.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" KeyUp="Page_KeyUp">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" KeyUp="StackPanel_KeyUp">
             <TextBox  Name="accountBox" Margin="10" Header="请输入用户ID" />
             <PasswordBox  Name="passwordbox" Margin="10" Header="请输入密码" />
             <Button Margin="0,10,0,0" Content="登陆" 

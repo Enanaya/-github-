@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -56,6 +57,19 @@ namespace 客户端.View
                     passwordbox.Password = "";
                     new MessageDialog("账户或密码错误").ShowAsync();
                 }
+            }
+        }
+
+        private void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key== VirtualKey.Enter)
+            {
+                Button_Click(sender, e);
             }
         }
     }

@@ -21,8 +21,7 @@
                 FontFamily="Segoe MDL2 Assets" Content="&#xE700;"  RelativePanel.AlignLeftWithPanel="True"/>
                 <AppBarButton Name="SearchButon" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" FontSize="24" 
                           Icon="Find"  Click="SearchButon_Click"/>
-                <TextBlock x:Name="testblock" RelativePanel.LeftOf="SearchButon" Height="40" Width="200" Margin="0,10,0,0"/>
-                <AppBarButton Icon="Send" Click="AppBarButton_ClickAsync" RelativePanel.LeftOf="testblock" />
+                <AppBarButton Icon="Send" Click="AppBarButton_ClickAsync" Height="40" RelativePanel.LeftOf="SearchButon"/>
             </RelativePanel>
 
             <SplitView Name="MySpilt" Grid.Row="1" CompactPaneLength="10" OpenPaneLength="95">

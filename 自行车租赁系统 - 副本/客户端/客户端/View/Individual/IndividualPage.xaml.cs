@@ -91,6 +91,7 @@ namespace 客户端.View
                     distanceText.Text = item.in_distance.ToString();
                     savecarbonText.Text = item.carbon_save.ToString();
                     calText.Text = item.calorie_cousume.ToString();
+                    numberText.Text = item.phonenumber.ToString();
                 }
 
             }
