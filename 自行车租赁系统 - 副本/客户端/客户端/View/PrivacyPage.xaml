@@ -28,7 +28,7 @@
                 <RelativePanel  Name="headiconR"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
                     <TextBlock Text="头像" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-                    <Ellipse RelativePanel.AlignRightWithPanel="True"  Height="50" Width="50"
+                    <Ellipse Name="headpictureE" RelativePanel.AlignRightWithPanel="True"  Height="50" Width="50"
                              RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,10,10,10" >
                         <Ellipse.Fill>
                             <ImageBrush  ImageSource="ms-appx:///Assets/default avatar.jpg" />
@@ -38,37 +38,40 @@
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="2" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue">
+        <Button Name="nickB" Grid.Row="2" HorizontalAlignment="Stretch" 
+                Background="White" BorderBrush="LightSteelBlue" Click="nickB_Click">
             <Button.Content>
                 <RelativePanel  Name="nickNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76" >
             <TextBlock Text="昵称" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
-                    Margin="0,10,10,10"  Text="1234124"/>
+            <TextBlock Name="nicknameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text="" />
         </RelativePanel>
             </Button.Content>
         </Button>
 
 
 
-        <Button Grid.Row="3" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue">
+        <Button Name="nameB" Grid.Row="3" HorizontalAlignment="Stretch" 
+                Background="White" BorderBrush="LightSteelBlue" Click="nameB_Click">
             <Button.Content>
                 <RelativePanel  Name="realNameR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
             <TextBlock Text="姓名" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
-                    Margin="0,10,10,10"  Text="asd"/>
+            <TextBlock Name="nameText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text=""/>
         </RelativePanel>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="4" HorizontalAlignment="Stretch" Background="White" BorderBrush="LightSteelBlue" >
+        <Button Name="phoneB" Grid.Row="4" HorizontalAlignment="Stretch" 
+                Background="White" BorderBrush="LightSteelBlue" Click="phoneB_Click">
             <Button.Content>
                 <RelativePanel  Name="phonenumberR" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-216,0" Height="76">
             <TextBlock Text="手机号" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
                        FontSize="24" Margin="10,10,0,10"/>
-            <TextBlock RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
-                    Margin="0,10,10,10"  Text="awd"/>
+            <TextBlock Name="phoneText" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" 
+                    Margin="0,10,10,10"  Text=""/>
         </RelativePanel>
             </Button.Content>
         </Button>

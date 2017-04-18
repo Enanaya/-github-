@@ -22,12 +22,13 @@ using 客户端.Models;
 
 namespace 客户端.View
 {
+
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
     public sealed partial class IndividualPage : Page
     {
-        public IndividualPage()
+        public IndividualPage()    
         {
             this.InitializeComponent();
 
@@ -59,7 +60,7 @@ namespace 客户端.View
 
         private void privacyB_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(PrivacyPage));
+            Frame.Navigate(typeof(PrivacyPage),this_account);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -88,9 +89,21 @@ namespace 客户端.View
                 foreach (var item in q)
                 {
                     distanceText.Text = item.in_distance.ToString();
+                    savecarbonText.Text = item.carbon_save.ToString();
+                    calText.Text = item.calorie_cousume.ToString();
                 }
 
             }
+        }
+
+        private void informationB_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InformationPage),this_account);
+        }
+
+        private void settingB_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingPage),this_account);
         }
     }
 }

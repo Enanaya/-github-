@@ -34,5 +34,15 @@ namespace 客户端.View
                 this.Frame.GoBack();
             }
         }
+
+        string this_account = "";
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                this_account = e.Parameter.ToString();
+            }
+        }
     }
 }

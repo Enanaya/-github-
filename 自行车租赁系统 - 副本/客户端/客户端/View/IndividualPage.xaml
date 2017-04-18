@@ -41,21 +41,21 @@
             </Grid.ColumnDefinitions>
 
             <RelativePanel Grid.Column="0" BorderThickness="0.5" BorderBrush="Gray">
-                <TextBlock Name="distanceText" Text="5.0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                <TextBlock Name="distanceText" Text="0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
                            RelativePanel.AlignVerticalCenterWithPanel="True" FontSize="48" FontFamily="槑萌体简"/>
                 <TextBlock Text="累计骑行（公里）"  RelativePanel.AlignBottomWithPanel="True" FontFamily="槑萌体简"
                            RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18" Margin="0,0,0,5"/>
             </RelativePanel>
 
             <RelativePanel Grid.Column="1" BorderThickness="0,0.5,0.5,0.5" BorderBrush="Gray">
-                <TextBlock Name="savecarbonText" Text="5.0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                <TextBlock Name="savecarbonText" Text="0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
                            RelativePanel.AlignVerticalCenterWithPanel="True" FontSize="48" FontFamily="槑萌体简"/>
                 <TextBlock Text="节约排碳量（千克）"  RelativePanel.AlignBottomWithPanel="True" FontFamily="槑萌体简"
                            RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18" Margin="0,0,0,5"/>
             </RelativePanel>
 
             <RelativePanel Grid.Column="2" BorderThickness="0,0.5,0.5,0.5" BorderBrush="Gray">
-                <TextBlock Name="kalText" Text="5.0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                <TextBlock Name="calText" Text="0" RelativePanel.AlignHorizontalCenterWithPanel="True" 
                            RelativePanel.AlignVerticalCenterWithPanel="True" FontSize="48" FontFamily="槑萌体简"/>
                 <TextBlock Text="运动成就（大千）"  RelativePanel.AlignBottomWithPanel="True" FontFamily="槑萌体简"
                            RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="18" Margin="0,0,0,5"/>
@@ -72,12 +72,12 @@
 
         <Grid Grid.Row="5">
             <Button Name="informationB" Content="我的消息" HorizontalContentAlignment="Left" 
-                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="informationB_Click"/>
         </Grid>
         
         <Grid Grid.Row="6">
             <Button Name="settingB" Content="设置" HorizontalContentAlignment="Left" 
-                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="settingB_Click"/>
         </Grid>
     </Grid>
     <!--</ScrollViewer>-->

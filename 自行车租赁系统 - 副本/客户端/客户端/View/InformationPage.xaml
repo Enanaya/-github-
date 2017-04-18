@@ -8,14 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
-                <Button Name="BackB" FontFamily="Segoe MDL2 Assets" FontSize="24" Background="#FF40D4E2"
+        <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
+            <Button Name="BackB" FontFamily="Segoe MDL2 Assets" FontSize="24" Background="#FF40D4E2"
                     Content="&#xE0A6;" Click="BackB_Click" RelativePanel.AlignLeftWithPanel="True"/>
-                <TextBlock Text="我的消息" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-            </RelativePanel>
-        </Grid>
+            <TextBlock Text="我的消息" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        </RelativePanel>
+
+        <ListView Name="infoList" Grid.Row="1">
+            
+        </ListView>
+    </Grid>
 </Page>

@@ -1,5 +1,9 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using SQLite.Net;
+using System.Linq;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
+using 客户端.Models;
 
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
@@ -35,7 +39,54 @@ namespace 客户端.View
             {
                 Frame.GoBack();
             }
-            
+        }
+
+        string this_account = "";
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                this_account = e.Parameter.ToString();
+            }
+        }
+
+        private void dataload() //用于打开页面加载路程数据等方法
+        {
+
+            using (SQLiteConnection conn = UserDatabase.GetDbConnection())
+            {
+                TableQuery<UserAccount> t = conn.Table<UserAccount>();
+                var q = from s in t.AsParallel<UserAccount>()
+                        orderby s.user_id
+                        where s.user_id == this_account
+                        select s;
+
+
+                foreach (var item in q)
+                {
+                    nicknameText.Text = item.nickname.ToString();
+                    nameText.Text = item.name.ToString();
+                    phoneText.Text = item.phonenumber.ToString();
+                    //headpictureE  如何设置头像？
+                }
+
+            }
+        }
+
+        private void nickB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void nameB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void phoneB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }

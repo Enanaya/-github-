@@ -198,9 +198,9 @@ namespace 客户端
         {
             // Get the route between the points.
             MapRouteFinderResult routeResult =
-                  await MapRouteFinder.GetDrivingRouteAsync(g1, g2,
-                  MapRouteOptimization.Time, MapRouteRestrictions.None);
+                  await MapRouteFinder.GetWalkingRouteAsync(g1, g2);
 
+            
             if (routeResult.Status == MapRouteFinderStatus.Success)
             {
                 // Use the route to initialize a MapRouteView.
@@ -297,7 +297,7 @@ namespace 客户端
 
         private void RouteB_Click(object sender, RoutedEventArgs e)
         {
-            myFrame.Navigate(typeof(RoutePage));
+            myFrame.Navigate(typeof(RoutePage),this_account);
         }
 
         private void LocateB_Click(object sender, RoutedEventArgs e)

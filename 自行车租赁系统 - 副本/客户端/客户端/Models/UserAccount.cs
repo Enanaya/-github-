@@ -36,6 +36,12 @@ namespace 客户端.Models
         [NotNull]
         public string name { get; set; } //真实姓名
 
+        [Column("nickname")]
+        public string nickname { get; set; } //昵称
+
+        [Column("headpicture")]
+        public string headpicture { get; set; } //头像路径
+
         [Column("individual_distance")]
         public double in_distance { get; set; }
 
