@@ -10,6 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
@@ -17,5 +18,9 @@
                     Content="&#xE0A6;" Click="BackB_Click" RelativePanel.AlignLeftWithPanel="True"/>
             <TextBlock Text="设置" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
+
+        <Button Name="LoginOutB" Grid.Row="1" Content="退出登录"
+                Background="Red"  HorizontalAlignment="Center"
+                Margin="10" Width="412" Click="LoginOutB_Click"/>
     </Grid>
 </Page>

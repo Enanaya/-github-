@@ -34,5 +34,10 @@ namespace 客户端.View
                 Frame.GoBack();
             }
         }
+
+        private void LoginOutB_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
     }
 }

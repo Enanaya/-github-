@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Models\BicycleDatabase.cs" />
     <Compile Include="Models\Bicycle.cs" />
+    <Compile Include="Models\Information.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserDatabase.cs" />
     <Compile Include="Models\动态密码.cs" />
@@ -143,6 +144,7 @@
   <ItemGroup>
     <Content Include="Assets\default avatar.jpg" />
     <Content Include="Assets\IndPageBike.jpg" />
+    <Content Include="Assets\Welcome_Logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

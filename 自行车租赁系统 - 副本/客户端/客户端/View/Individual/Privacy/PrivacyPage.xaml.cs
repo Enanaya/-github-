@@ -25,14 +25,14 @@ namespace 客户端.View
 
         private void headiconR_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            var dialog = new ContentDialog()
-            {
-                Title = "消息提示",
-                Content = "当前设置尚未保存，你确认要退出该页面吗?",
-                PrimaryButtonText = "确定",
-                SecondaryButtonText = "取消",
-                FullSizeDesired = false,
-            };
+            //var dialog = new ContentDialog()
+            //{
+            //    Title = "消息提示",
+            //    Content = "当前设置尚未保存，你确认要退出该页面吗?",
+            //    PrimaryButtonText = "确定",
+            //    SecondaryButtonText = "取消",
+            //    FullSizeDesired = false,
+            //};
 
         }
 
@@ -52,6 +52,7 @@ namespace 客户端.View
             {
                 this_account = e.Parameter.ToString();
             }
+            dataload();
         }
 
         private void dataload() //用于打开页面加载路程数据等方法

@@ -29,10 +29,7 @@ namespace 客户端.View
 
         private void BackB_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Frame.CanGoBack)
-            {
-                this.Frame.GoBack();
-            }
+            Frame.Navigate(typeof(MainPage), this_account);
         }
 
         string this_account = "";

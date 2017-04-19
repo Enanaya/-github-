@@ -5,6 +5,7 @@
     xmlns:local="using:客户端.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:客户端.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -19,8 +20,18 @@
             <TextBlock Text="我的消息" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
 
-        <ListView Name="infoList" Grid.Row="1">
-            
+        <ListView Name="infoList" Grid.Row="1" 
+                  ItemsSource="{x:Bind Informations}"
+                  ItemClick="infoList_ItemClick">
+            <ListView.ItemTemplate >
+                <DataTemplate  x:DataType="data:Information">
+                    <StackPanel Margin="10">
+                        <Image Width="150" Height="75"  Source="{x:Bind CoverImage}"/>
+                        <TextBlock FontSize="10" Text="{x:Bind PublishedTime}"/>
+                        <TextBlock FontSize="14" Text="{x:Bind Title}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

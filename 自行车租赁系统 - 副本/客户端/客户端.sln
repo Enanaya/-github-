@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "客户端", "客户端\客户端.csproj", "{B911A96B-C6A4-4296-A9F5-B32966944E9B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "超市管理系统", "..\..\..\Visual Studio 2015\VB pro\超市管理系统\超市管理系统\超市管理系统.csproj", "{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,26 +37,6 @@ Global
 		{B911A96B-C6A4-4296-A9F5-B32966944E9B}.Release|x86.ActiveCfg = Release|x86
 		{B911A96B-C6A4-4296-A9F5-B32966944E9B}.Release|x86.Build.0 = Release|x86
 		{B911A96B-C6A4-4296-A9F5-B32966944E9B}.Release|x86.Deploy.0 = Release|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|ARM.ActiveCfg = Debug|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|ARM.Build.0 = Debug|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|ARM.Deploy.0 = Debug|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x64.ActiveCfg = Debug|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x64.Build.0 = Debug|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x64.Deploy.0 = Debug|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x86.ActiveCfg = Debug|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x86.Build.0 = Debug|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Debug|x86.Deploy.0 = Debug|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|Any CPU.ActiveCfg = Release|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|ARM.ActiveCfg = Release|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|ARM.Build.0 = Release|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|ARM.Deploy.0 = Release|ARM
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x64.ActiveCfg = Release|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x64.Build.0 = Release|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x64.Deploy.0 = Release|x64
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x86.ActiveCfg = Release|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x86.Build.0 = Release|x86
-		{9F4C966E-D4EA-4124-9AE7-8649CED8C2BB}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
