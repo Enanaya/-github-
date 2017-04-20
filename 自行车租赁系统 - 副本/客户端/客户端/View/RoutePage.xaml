@@ -10,6 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <RelativePanel Name="privacyTittle" Background="#FF40D4E2"  Grid.Row="0">
@@ -18,5 +19,29 @@
             <TextBlock Text="我的行程" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
 
+        <ListView  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0">
+                            <Image Source="ms-appx:///Assets/Clock.png"/>
+                            <TextBlock Name="timeText"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Text="行程消费"/>
+                            <TextBlock />
+                            <TextBlock  Text="车牌号"/>
+                            <TextBlock />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

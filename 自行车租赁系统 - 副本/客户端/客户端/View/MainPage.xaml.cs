@@ -27,6 +27,7 @@ using Windows.UI.Popups;
 using Windows.Services.Maps;
 using Windows.UI;
 using System.Diagnostics;
+using Windows.Storage.Streams;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -51,7 +52,7 @@ namespace 客户端
             this.InitializeComponent();
             DataContext = view;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(500, 750));
-            
+
         }
 
         public ObservableCollection<UserAccount> useracccount { get; set; }
@@ -75,17 +76,17 @@ namespace 客户端
                     useracccount.Add(temp);
                 }
 
-                StringBuilder msg = new StringBuilder();
-                msg.AppendLine($"数据库中总共 {useracccount.Count()} 个 user 对象。");
+                //StringBuilder msg = new StringBuilder();
+                //msg.AppendLine($"数据库中总共 {useracccount.Count()} 个 user 对象。");
 
-                ///测试数据库出来的实例location转换
+                /////测试数据库出来的实例location转换
 
-                foreach (var item in useracccount)
-                {
-                    msg.AppendLine($"Id：{item.user_id}；Name：{item.name}");
-                }
+                //foreach (var item in useracccount)
+                //{
+                //    msg.AppendLine($"Id：{item.user_id}；Name：{item.name}");
+                //}
 
-                new MessageDialog(msg.ToString()).ShowAsync();
+                //new MessageDialog(msg.ToString()).ShowAsync();
             }
         }
 
@@ -93,7 +94,7 @@ namespace 客户端
         public ObservableCollection<Bicycle> bicycle { get; set; }
             = new ObservableCollection<Bicycle>();
 
-        private void Basetest() //单车数据库测试
+        private void Bicycletest() //单车数据库测试
         {
 
             using (SQLiteConnection conn = BicycleDatabase.GetDbConnection())
@@ -111,19 +112,17 @@ namespace 客户端
                     bicycle.Add(temp);
                 }
 
-                StringBuilder msg = new StringBuilder();
-                msg.AppendLine($"数据库中总共 {bicycle.Count()} 个 bicycle 对象。");
+                //StringBuilder msg = new StringBuilder();
+                //msg.AppendLine($"数据库中总共 {bicycle.Count()} 个 bicycle 对象。");
 
-                ///测试数据库出来的实例location转换
+                /////测试数据库出来的实例location转换
 
-                foreach (var item in bicycle)
-                {
-                    msg.AppendLine($"Id：{item.bicycle_id}；Location：{item.current_location}");
-                }
+                //foreach (var item in bicycle)
+                //{
+                //    msg.AppendLine($"Id：{item.bicycle_id}；Location：{item.current_location}");
+                //}
 
-                new MessageDialog(msg.ToString()).ShowAsync();
-
-
+                //new MessageDialog(msg.ToString()).ShowAsync();
 
 
                 foreach (var temp in bicycle.Select(temp => current_location_parse(temp.current_location))
@@ -131,7 +130,10 @@ namespace 客户端
                     {
                         Latitude = temp.x,
                         Longitude = temp.y,
-                    })).Select(temp => new MapIcon() { Location = temp }))
+                    })).Select(temp => new MapIcon() { Location = temp,
+                        Image = RandomAccessStreamReference.
+                     CreateFromUri(new Uri("ms-appx:///Assets/Bicycle.png")),
+                    }))
                 {
                     map.MapElements.Add(temp);
                 }
@@ -201,7 +203,7 @@ namespace 客户端
             MapRouteFinderResult routeResult =
                   await MapRouteFinder.GetWalkingRouteAsync(g1, g2);
 
-            
+
             if (routeResult.Status == MapRouteFinderStatus.Success)
             {
                 // Use the route to initialize a MapRouteView.
@@ -224,19 +226,27 @@ namespace 客户端
         private void SearchButon_Click(object sender, RoutedEventArgs e)
         {
 
-            Basetest();
             //Usertest();
-
+            //FindMapAddress(addressBox.Text);
         }
 
-        //private void Page_Loaded(object sender, RoutedEventArgs e)
-        //{
+        private async void FindMapAddress(string address)
+        {
+            BasicGeoposition queryHint = new BasicGeoposition();
+            queryHint.Latitude = 47.643;
+            queryHint.Longitude = -122.131;
+            Geopoint hintPoint = new Geopoint(queryHint);
 
-        //}
+            MapLocationFinderResult result =
+         await MapLocationFinder.FindLocationsAsync(address, hintPoint,1);
+
+            map.Center = result.Locations[0].Point;
+        }
 
         private void map_Loaded(object sender, RoutedEventArgs e)
         {
             Locate(16);
+            Bicycletest();
         }
 
         private async void Locate(double zoom)
@@ -283,7 +293,7 @@ namespace 客户端
 
         private void IndividualB_Click(object sender, RoutedEventArgs e)
         {
-            myFrame.Navigate(typeof(IndividualPage),this_account);
+            myFrame.Navigate(typeof(IndividualPage), this_account);
 
         }
 
@@ -298,7 +308,7 @@ namespace 客户端
 
         private void RouteB_Click(object sender, RoutedEventArgs e)
         {
-            myFrame.Navigate(typeof(RoutePage),this_account);
+            myFrame.Navigate(typeof(RoutePage), this_account);
         }
 
         private void LocateB_Click(object sender, RoutedEventArgs e)

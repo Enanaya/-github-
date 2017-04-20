@@ -50,5 +50,8 @@ namespace 客户端.Models
 
         [Column("calorie_cousume")]
         public long calorie_cousume { get; set; }
+
+        [Column("route")]     //以"1,3,5...."的形式存放该账户的route id
+        public string routes { get; set; }
     }
 }

@@ -98,9 +98,12 @@
     <Compile Include="Models\BicycleDatabase.cs" />
     <Compile Include="Models\Bicycle.cs" />
     <Compile Include="Models\Information.cs" />
+    <Compile Include="Models\Route.cs" />
+    <Compile Include="Models\RouteDataBase.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserDatabase.cs" />
     <Compile Include="Models\动态密码.cs" />
+    <Compile Include="MoveSimulate.cs" />
     <Compile Include="Resource\MyContentDialog.xaml.cs">
       <DependentUpon>MyContentDialog.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,8 @@
     <None Include="客户端_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Bicycle.png" />
+    <Content Include="Assets\Clock.png" />
     <Content Include="Assets\default avatar.jpg" />
     <Content Include="Assets\IndPageBike.jpg" />
     <Content Include="Assets\Welcome_Logo.png" />

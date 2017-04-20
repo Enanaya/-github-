@@ -14,7 +14,7 @@ namespace 客户端.Models
     {
 
         [Column("bicycleid")]
-        [PrimaryKey,NotNull]
+        [PrimaryKey, NotNull]
         public string bicycle_id { get; set; }
 
         //public string btype { get; set; }
@@ -46,6 +46,16 @@ namespace 客户端.Models
         //没有实体，所以二维码不知如何实现，采用动态密码
         public string password { get; set; } //用于交互的动态密码，以数据库中绑定的密码加密得来
 
+        //[Column("bicycleIcon")]
+        //public string bicycleIcon
+        //{
+        //    get { return bicycleIcon; }
+        //    set { value = BicycleIcon(); }
+        //}
 
+        //public string BicycleIcon()
+        //{
+        //    return "ms-appx:///Assets/Bicycle.jpg";
+        //}
     }
 }
