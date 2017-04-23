@@ -308,7 +308,7 @@ namespace 客户端
 
         private void RouteB_Click(object sender, RoutedEventArgs e)
         {
-            myFrame.Navigate(typeof(RoutePage), this_account);
+            //myFrame.Navigate(typeof(RoutePage), this_account);
         }
 
         private void LocateB_Click(object sender, RoutedEventArgs e)

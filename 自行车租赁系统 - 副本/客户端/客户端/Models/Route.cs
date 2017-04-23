@@ -39,14 +39,14 @@ namespace 客户端.Models
         [Column("time_consume")]
         public TimeSpan time_consume  
         {
-            get { return time_consume; }
-            set { value = Time_consume(); }
+            get { return new TimeSpan(end_time.Ticks - start_Time.Ticks); }
         }
 
-        public TimeSpan Time_consume()
-        {
-            return new TimeSpan(end_time.Ticks) - new TimeSpan(start_Time.Ticks);
-        }
+        //public TimeSpan Time_consume()
+        //{
+            
+        //    return new TimeSpan() - new TimeSpan();
+        //}
 
         /// <summary>
         /// 一次路程的距离，同花费时间
@@ -54,8 +54,7 @@ namespace 客户端.Models
         [Column("distance")]
         public string distance
         {
-            get { return distance; }
-            set { value = Distance().ToString(); }
+            get { return Distance().ToString(); }
         }
 
         public async Task<string> Distance()

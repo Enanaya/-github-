@@ -78,32 +78,14 @@ namespace 客户端.View.Privacy
                         where s.user_id == this_account
                         select s;
 
-                
-                var dt = new UserAccount();
+               
 
-                foreach (var item in q)
-                {
-                    dt.user_id = item.user_id;
-                    dt.name = item.name;
-                    dt.nickname = reNameBox.Text;
-                    dt.password = item.password;
-                    dt.amount = item.amount;
-                    dt.calorie_cousume = item.calorie_cousume;
-                    dt.carbon_save = item.carbon_save;
-                    dt.headpicture = item.headpicture;
-                    dt.in_distance = item.in_distance;
-                    dt.phonenumber = item.phonenumber;
-                    dt.ranknumber = item.ranknumber;
-                }
-
-                conn.InsertOrReplace(dt);
-
-                if (this.Frame.CanGoBack)
-                {
-                    Frame.GoBack();
-                }
-                //conn.InsertOrReplace(new UserAccount()
-                //{ user_id=this_account, nickname=reNameBox.Text,password=ps.ToString()});
+                q.First().nickname = reNameBox.Text;
+                conn.InsertOrReplace(q.First());
+            }
+            if (this.Frame.CanGoBack)
+            {
+                Frame.GoBack();
             }
         }
     }

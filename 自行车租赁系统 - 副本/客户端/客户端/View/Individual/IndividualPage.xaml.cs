@@ -31,7 +31,6 @@ namespace 客户端.View
         public IndividualPage()    
         {
             this.InitializeComponent();
-
         }
 
         string this_account = "";
@@ -46,10 +45,7 @@ namespace 客户端.View
 
         private void BackB_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Frame.CanGoBack)
-            {
-                Frame.GoBack();
-            }
+            Frame.Navigate(typeof(MainPage), this_account);
         }
 
 
@@ -105,6 +101,11 @@ namespace 客户端.View
         private void settingB_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SettingPage),this_account);
+        }
+
+        private void myRounteB_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RoutePage), this_account);
         }
     }
 }

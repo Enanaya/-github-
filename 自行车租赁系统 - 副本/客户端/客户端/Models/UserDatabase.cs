@@ -19,8 +19,12 @@ namespace 客户端.Models
             // 连接数据库，如果数据库文件不存在则创建一个空数据库。
             var conn = new SQLiteConnection(new SQLitePlatformWinRT(), DbPath);
             // 创建 Person 模型对应的表，如果已存在，则忽略该操作。
-            conn.CreateTable<UserAccount>();
-            dataWrite(conn);
+            var dt = conn.Table<UserAccount>();
+            if (dt == null)
+            {
+                conn.CreateTable<UserAccount>();
+                dataWrite(conn);
+            }
             return conn;
         }
 
@@ -29,11 +33,11 @@ namespace 客户端.Models
             var add = new List<UserAccount>()
             {
                 new UserAccount (){ user_id="001",password="qwerty",name="张三",
-                    phonenumber ="123456789012",in_distance=50.5 , nickname="nanaya",
+                    phonenumber ="123456789012",/*in_distance=50.5 ,*/ nickname="nanaya",
                     headpicture ="ms-appx:///Assets/default avatar.jpg",
                     carbon_save =1.8,calorie_cousume=781} ,
                 new UserAccount (){ user_id="002",password="asdfgh",name="李四",
-                    phonenumber ="123456789012",in_distance=23 ,amount=25.6M},
+                    phonenumber ="123456789012",/*in_distance=23 ,*/amount=25.6M},
                 new UserAccount (){ user_id="003",password="zxcvbn",name="王五",
                     phonenumber ="123456789012" }
             };

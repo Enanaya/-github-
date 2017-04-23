@@ -23,7 +23,7 @@
         </RelativePanel>
 
         <StackPanel  Grid.Row="1" Margin="10">
-            <TextBox Name="reNameBox" Loaded="reNameBox_Loaded"/>
+            <TextBox Name="reNameBox" Loaded="reNameBox_Loaded" />
         </StackPanel>
     </Grid>
 </Page>

@@ -5,6 +5,7 @@
     xmlns:local="using:客户端.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:data="using:客户端.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -19,29 +20,42 @@
             <TextBlock Text="我的行程" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
 
-        <ListView  Grid.Row="1">
+        <ListView Name="routeList"  Grid.Row="1" ItemsSource="{x:Bind routes}">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
+                <DataTemplate x:DataType="data:Route">
+                    <Grid Margin="5">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0">
-                            <Image Source="ms-appx:///Assets/Clock.png"/>
-                            <TextBlock Name="timeText"/>
+                        <StackPanel Grid.Row="0" Margin="2.5" Orientation="Horizontal">
+                            <TextBlock Text="起始时间"/>
+                            <TextBlock  Margin="5,0,0,0" Text="{x:Bind start_Time}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="1" Margin="2.5" Orientation="Horizontal" >
+                            <Image Source="ms-appx:///Assets/Clock.png" Width="14"/>
+                            <TextBlock Margin="5,0,0,0" Text="耗时"/>
+                            <TextBlock Name="timeText" Margin="5,0,0,0" Text="{x:Bind time_consume}"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1">
-                            <TextBlock Text="行程消费"/>
-                            <TextBlock />
-                            <TextBlock  Text="车牌号"/>
-                            <TextBlock />
+                        <StackPanel Grid.Row="2" Margin="2.5" Orientation="Horizontal">
+                            <TextBlock  Margin="10,0,0,0" Text="车牌号"/>
+                            <TextBlock  FontFamily="Segoe Script" FontSize="18" Text="{x:Bind bicycle_id}"/>
                         </StackPanel>
+
+                        <StackPanel Grid.Row="3" Margin="2.5" Orientation="Horizontal">
+                            <TextBlock Text="行程消费"/>
+                            <TextBlock Margin="10,0,0,0" FontFamily="Segoe Script" FontSize="18" Text="{x:Bind money_consume}"/>
+                        </StackPanel>
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </Grid>
 </Page>

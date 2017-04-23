@@ -19,7 +19,8 @@
             <RelativePanel Name="menup" >
                 <Button Name="HamburgerButton" Height="40" Width="40" FontSize="24"  Click="HamburgerButton_Click"
                 FontFamily="Segoe MDL2 Assets" Content="&#xE700;"  RelativePanel.AlignLeftWithPanel="True"/>
-                <AppBarButton Name="SearchButon" RelativePanel.AlignRightWithPanel="True" Height="40" Width="40" FontSize="24" 
+                <AppBarButton Name="SearchButon" RelativePanel.AlignRightWithPanel="True"
+                              Height="40" Width="40" FontSize="24"  RelativePanel.AlignVerticalCenterWithPanel="True"
                           Icon="Find"  Click="SearchButon_Click"/>
                 <TextBox Name="addressBox" RelativePanel.LeftOf="SearchButon" RelativePanel.AlignVerticalCenterWithPanel="True"
                          Width="150" PlaceholderText="输入地名搜索" FontSize="13.5"/>
@@ -39,7 +40,8 @@
                             </AppBarButton>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Margin="-10,0,0,0">
+                        <!--做了一个多余的行程按钮，实际应该在个人中心里-->
+                        <StackPanel Orientation="Horizontal" Margin="-10,0,0,0" Visibility="Collapsed">
                             <AppBarButton Name="RouteB"  Label="我的行程" Style="{StaticResource AppBarButtonStyle1}" Click="RouteB_Click" >
                                 <AppBarButton.Icon>
                                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE805;" />

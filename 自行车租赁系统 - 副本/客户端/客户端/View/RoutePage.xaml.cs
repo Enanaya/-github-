@@ -25,17 +25,17 @@ namespace 客户端.View
     /// </summary>
     public sealed partial class RoutePage : Page
     {
+
+        private List<Route> routes;
+
+
         public RoutePage()
         {
             this.InitializeComponent();
+            //routeList.ItemsSource = routes;
         }
 
-        private void BackB_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage), this_account);
-        }
-
-        string this_account = "";
+        string this_account;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -43,30 +43,25 @@ namespace 客户端.View
             {
                 this_account = e.Parameter.ToString();
             }
+            routes = RouteInfo(RouteDataBase.RouteMaker());
         }
 
-        public ObservableCollection<Route> routes { get; set; }
-            = new ObservableCollection<Route>();
-
-
-        private void Routetest() //用户数据库测试
+        private void BackB_Click(object sender, RoutedEventArgs e)
         {
-            using (SQLiteConnection conn = RouteDataBase.GetDbConnection())
+            if (Frame.CanGoBack)
             {
-                //Debug.WriteLine(conn.DatabasePath.ToString());//找出数据库位置
-                TableQuery<Route> t = conn.Table<Route>();
-                var q = from s in t.AsParallel<Route>()
-                        orderby s.route_id
-                        select s;
-
-                routes.Clear();
-
-                foreach (var temp in q)
-                {
-                    routes.Add(temp);
-                }
-
+                Frame.GoBack();
             }
+        }
+
+
+        private List<Route> RouteInfo(List<Route> r) //编辑获得路线集合符合id
+        {
+            var result = from s in r
+                         orderby s.route_id
+                         where s.user_id == this_account
+                         select s;
+            return result.ToList();
         }
     }
 }

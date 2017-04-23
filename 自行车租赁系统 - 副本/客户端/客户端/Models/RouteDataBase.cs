@@ -10,7 +10,7 @@ using Windows.Storage;
 
 namespace 客户端.Models
 {
-    class RouteDataBase
+    public class RouteDataBase : Route
     {
         public readonly static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "用户.db");
 
@@ -26,16 +26,27 @@ namespace 客户端.Models
 
         private static void dataWrite(SQLiteConnection conn)
         {
+
+            var add = RouteMaker();
+
+            foreach (var item in add)
+            {
+                conn.InsertOrReplace(item);
+            }
+        }
+
+        public static List<Route> RouteMaker()
+        {
             var add = new List<Route>()
             {
-                new Route (){route_id="1",user_id="001",bicycle_id="002", 
+                new Route (){route_id="1",user_id="001",bicycle_id="002",
                     last_location ="23.0451771289,113.3829456568",
                     start_Time =Convert.ToDateTime("2017-4-10 16:57"),
                     current_location="23.0423435989,113.3889216185",
                     end_time=Convert.ToDateTime("2017-4-10 17:07"),
                     money_consume=1.0M,calorie_cousume=50,carbon_save=151,
                 },
-                new Route (){route_id="2",user_id="002",bicycle_id="001", 
+                new Route (){route_id="2",user_id="002",bicycle_id="001",
                     last_location ="23.0456263416,113.3893883228",
                     start_Time =Convert.ToDateTime("2017-4-12 9:01"),
                     current_location="23.0381623057,113.3949887753",
@@ -57,11 +68,16 @@ namespace 客户端.Models
                     money_consume=0.5M,calorie_cousume=34,carbon_save=100,
                 }
             };
-
-            foreach (var item in add)
-            {
-                conn.InsertOrReplace(item);
-            }
+            return add;
         }
+
+        //public class RouteMananger
+        //{
+        //    public static List<Route> GetInfo()
+        //    {
+        //        return RouteMaker();
+        //    }
+
+        //}
     }
 }

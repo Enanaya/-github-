@@ -1,4 +1,5 @@
-﻿using SQLite.Net.Attributes;
+﻿using SQLite.Net;
+using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace 客户端.Models
     [Table("user")]
     public class UserAccount
     {
+        public double dis_sum = 0;
+
         [Column("userid")]
         [PrimaryKey, NotNull]
         public string user_id { get; set; }
@@ -44,6 +47,17 @@ namespace 客户端.Models
 
         [Column("individual_distance")]
         public double in_distance { get; set; }
+        //{
+        //    get
+        //    {
+        //        var res = RouteDataGet.dataGet(RouteDataBase.RouteMaker(), this.user_id);
+        //        foreach (var item in res)
+        //        {
+        //            dis_sum += Convert.ToDouble(item.distance);
+        //        }
+        //        return dis_sum;
+        //    }
+        //}
 
         [Column("carbon_save")]
         public double carbon_save { get; set; }
@@ -51,7 +65,22 @@ namespace 客户端.Models
         [Column("calorie_cousume")]
         public long calorie_cousume { get; set; }
 
-        [Column("route")]     //以"1,3,5...."的形式存放该账户的route id
-        public string routes { get; set; }
+
+    }
+
+
+    public static class RouteDataGet
+    {
+        public static List<Route> dataGet(List<Route> r, string userId)
+        {
+            using (SQLiteConnection conn = RouteDataBase.GetDbConnection())
+            {
+                var result = from s in r
+                             where s.user_id == userId
+                             select s;
+                return result.ToList();
+            }
+        }
+
     }
 }
