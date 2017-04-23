@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using 客户端.Models;
+using 客户端.View.Individual.RouteInfo;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -62,6 +63,13 @@ namespace 客户端.View
                          where s.user_id == this_account
                          select s;
             return result.ToList();
+        }
+
+        private void routeList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var na_route = e.ClickedItem as Route;
+
+            Frame.Navigate(typeof(RouteItemMap), na_route);
         }
     }
 }

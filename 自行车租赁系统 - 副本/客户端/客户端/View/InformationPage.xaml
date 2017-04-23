@@ -22,6 +22,7 @@
 
         <ListView Name="infoList" Grid.Row="1" 
                   ItemsSource="{x:Bind Informations}"
+                  IsItemClickEnabled="True"
                   ItemClick="infoList_ItemClick">
             <ListView.ItemTemplate >
                 <DataTemplate  x:DataType="data:Information">

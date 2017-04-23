@@ -20,9 +20,11 @@ xmlns:data="using:客户端.Models"
             <TextBlock Text="我的行程" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
 
-        <ListView Name="routeList"  Grid.Row="1" ItemsSource="{x:Bind routes}">
+        <ListView Name="routeList"  Grid.Row="1" 
+                  ItemsSource="{x:Bind routes}"  ItemClick="routeList_ItemClick" IsItemClickEnabled="True"
+                  >
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:Route">
+                <DataTemplate x:DataType="data:Route" >
                     <Grid Margin="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -35,7 +37,7 @@ xmlns:data="using:客户端.Models"
                             <TextBlock Text="起始时间"/>
                             <TextBlock  Margin="5,0,0,0" Text="{x:Bind start_Time}"/>
                         </StackPanel>
-                        
+
                         <StackPanel Grid.Row="1" Margin="2.5" Orientation="Horizontal" >
                             <Image Source="ms-appx:///Assets/Clock.png" Width="14"/>
                             <TextBlock Margin="5,0,0,0" Text="耗时"/>

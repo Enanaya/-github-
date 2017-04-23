@@ -112,6 +112,9 @@
     <Compile Include="View\Individual\IndividualPage.xaml.cs">
       <DependentUpon>IndividualPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Individual\RouteInfo\RouteItemMap.xaml.cs">
+      <DependentUpon>RouteItemMap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
@@ -128,7 +131,7 @@
     <Compile Include="View\Individual\Privacy\PrivacyPage.xaml.cs">
       <DependentUpon>PrivacyPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RoutePage.xaml.cs">
+    <Compile Include="View\Individual\RouteInfo\RoutePage.xaml.cs">
       <DependentUpon>RoutePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingPage.xaml.cs">
@@ -173,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Individual\RouteInfo\RouteItemMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\InformationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,7 +200,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RoutePage.xaml">
+    <Page Include="View\Individual\RouteInfo\RoutePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
