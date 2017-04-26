@@ -73,15 +73,16 @@ namespace 客户端.View.Privacy
             using (SQLiteConnection conn = UserDatabase.GetDbConnection())
             {
                 TableQuery<UserAccount> t = conn.Table<UserAccount>();
-                var q = from s in t.AsParallel<UserAccount>()
+                var q = (from s in t
                         orderby s.user_id
                         where s.user_id == this_account
-                        select s;
+                        select s).SingleOrDefault();
 
-               
-
-                q.First().nickname = reNameBox.Text;
-                conn.InsertOrReplace(q.First());
+                q.nickname = reNameBox.Text;
+                conn.Update(q);
+                //q.First().nickname = reNameBox.Text;
+                
+                //conn.InsertOrReplace(q);
             }
             if (this.Frame.CanGoBack)
             {
