@@ -24,7 +24,7 @@ namespace 客户端.Models
         [Column("distance")]
         public decimal distance { get; set; }
 
-        public enum state { busy, free, maintenance, anomaly }
+        public state bicycle_state { get; set; }
 
         [Column("supplyid")]
         public string supply_id { get; set; }
@@ -58,4 +58,6 @@ namespace 客户端.Models
         //    return "ms-appx:///Assets/Bicycle.jpg";
         //}
     }
+
+    public enum state { free, busy, maintenance, anomaly }
 }

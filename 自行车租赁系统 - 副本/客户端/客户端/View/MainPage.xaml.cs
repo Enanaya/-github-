@@ -326,6 +326,23 @@ namespace 客户端
             //map.MapElements.Add(end_mapicon);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void UseBicycleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as ToggleButton;
+            //button.IsChecked
+        }
+
+        private void map_MapTapped(MapControl sender, MapInputEventArgs args)
+        {
+            Debug.WriteLine(args.Location.Position.Latitude + ","
+                + args.Location.Position.Longitude);
+            
+            
+        }
     }
 }

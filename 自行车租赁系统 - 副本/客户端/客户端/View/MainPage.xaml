@@ -54,7 +54,7 @@
                     <Grid Background="White"  Name="mapGrid">
                         <Map:MapControl Name="map" Background="{x:Null}" 
                                     MapServiceToken= "Z5esxKCKfNSCGSpFfGx7~HqEpg8rx3A4KvAEAPGuV6A~AnVe5T - XD0GmA4zaNJP9mjD6bRKgqZiNtQgT7ta8lP6Rdb0emOcpGGmyur9LfeWR" 
-                                    ZoomLevel="16" Loaded="map_Loaded" PointerPressed="map_PointerPressed"
+                                    ZoomLevel="16" Loaded="map_Loaded" PointerPressed="map_PointerPressed" MapTapped="map_MapTapped"
                                     >
                             <RelativePanel Width="{Binding ElementName=myPage,Path=Width}" Height="730">
                                 <Button Name="LocateB" Background="{x:Null}" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25"
@@ -63,6 +63,11 @@
                                 <!--<Ellipse Name="locateRound" Fill="Blue"   Height="50" Stroke="{x:Null}"  Width="50"/>-->
                             </RelativePanel>
                         </Map:MapControl>
+                        <ToggleButton Name="UseBicycleButton"  Margin="5" Content="用车" 
+                                HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Click="UseBicycleButton_Click"/>
+
+
                         <!--<WebView Name="MapHtml" Width="300" Height="300" />-->
                     </Grid>
                 </SplitView.Content>
