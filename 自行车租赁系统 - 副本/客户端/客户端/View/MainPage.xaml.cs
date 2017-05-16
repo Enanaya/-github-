@@ -28,6 +28,7 @@ using Windows.Services.Maps;
 using Windows.UI;
 using System.Diagnostics;
 using Windows.Storage.Streams;
+using 客户端.Resource;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -214,7 +215,7 @@ namespace 客户端
                 // Add the new MapRouteView to the Routes collection
                 // of the MapControl.
                 map.Routes.Add(viewOfRoute);
-
+                
                 // Fit the MapControl to the route.
                 await map.TrySetViewBoundsAsync(
                       routeResult.Route.BoundingBox,
@@ -331,18 +332,47 @@ namespace 客户端
 
         }
 
-        private void UseBicycleButton_Click(object sender, RoutedEventArgs e)
+        public bool useflag=false; //用于判断用车模拟点击地图画路线
+
+        private async void UseBicycleButton_Click(object sender, RoutedEventArgs e)
         {
-            var button = sender as ToggleButton;
+            var button = sender as ToggleButton; //点击之后为ischecked==true
             //button.IsChecked
+            string bicycleId="";
+            if (button.IsChecked==true)
+            {
+                
+                ContentDialog con = new ContentDialog()
+                {
+                    Content = new MyContentDialog(),
+                    PrimaryButtonText = "确定",
+                    SecondaryButtonText = "取消",
+
+                };
+
+                con.PrimaryButtonClick += (s, a) => { button.Content = "结束用车"; };
+                con.SecondaryButtonClick += (s, a) => { button.IsChecked = false; };
+                await con.ShowAsync();
+                useflag = true;
+            }
+
+            if (button.IsChecked == false) //结束用车时的点击
+            {
+                button.Content = "用车";
+                useflag = false;
+            }
+            //Simulation.bicycleuse(this_account, bicycleId);
         }
 
-        private void map_MapTapped(MapControl sender, MapInputEventArgs args)
+        public Geopoint goalpoint;
+
+        private async void map_MapTapped(MapControl sender, MapInputEventArgs args)
         {
-            Debug.WriteLine(args.Location.Position.Latitude + ","
-                + args.Location.Position.Longitude);
-            
-            
+            if (useflag == true)
+            {
+                goalpoint = args.Location;
+                await routeCreateAsync(g1, goalpoint); //g1应为当前选择车辆的坐标
+            }
         }
     }
 }

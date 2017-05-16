@@ -63,7 +63,7 @@
                                 <!--<Ellipse Name="locateRound" Fill="Blue"   Height="50" Stroke="{x:Null}"  Width="50"/>-->
                             </RelativePanel>
                         </Map:MapControl>
-                        <ToggleButton Name="UseBicycleButton"  Margin="5" Content="用车" 
+                        <ToggleButton Name="UseBicycleButton"  Margin="5,5,5,20" Content="用车" 
                                 HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                 Click="UseBicycleButton_Click"/>
 
