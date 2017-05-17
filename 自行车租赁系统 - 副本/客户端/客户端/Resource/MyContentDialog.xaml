@@ -10,7 +10,9 @@
     d:DesignWidth="400">
 
     <Grid >
-            <TextBox Name="inputBox" Width="150" Margin="0,30,0,0"
-                   Height="50" FontSize="24" PlaceholderText="车牌号"/>
+        <TextBox Name="inputBox" Margin="0,30,0,0"
+                 Width="150" Height="50" 
+                 FontSize="24" PlaceholderText="车牌号"
+                 Text="{x:Bind Text,Mode=TwoWay}"/>
     </Grid>
 </UserControl>

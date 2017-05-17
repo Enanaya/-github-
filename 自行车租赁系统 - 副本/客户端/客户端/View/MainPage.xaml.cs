@@ -341,16 +341,20 @@ namespace 客户端
             string bicycleId="";
             if (button.IsChecked==true)
             {
-                
+                var content = new MyContentDialog();
                 ContentDialog con = new ContentDialog()
                 {
-                    Content = new MyContentDialog(),
+                    Content = content,
                     PrimaryButtonText = "确定",
                     SecondaryButtonText = "取消",
-
                 };
 
-                con.PrimaryButtonClick += (s, a) => { button.Content = "结束用车"; };
+                con.PrimaryButtonClick += (s, a) =>
+                {
+                    button.Content = "结束用车";
+                    //获取输入
+                    var str = content.Text;
+                };
                 con.SecondaryButtonClick += (s, a) => { button.IsChecked = false; };
                 await con.ShowAsync();
                 useflag = true;
