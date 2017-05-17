@@ -53,7 +53,6 @@ namespace 客户端
             this.InitializeComponent();
             DataContext = view;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(500, 750));
-
         }
 
         public ObservableCollection<UserAccount> useracccount { get; set; }
@@ -107,23 +106,12 @@ namespace 客户端
                 // 绑定
 
                 bicycle.Clear();
+                map.MapElements.Clear();
 
                 foreach (var temp in q)
                 {
                     bicycle.Add(temp);
                 }
-
-                //StringBuilder msg = new StringBuilder();
-                //msg.AppendLine($"数据库中总共 {bicycle.Count()} 个 bicycle 对象。");
-
-                /////测试数据库出来的实例location转换
-
-                //foreach (var item in bicycle)
-                //{
-                //    msg.AppendLine($"Id：{item.bicycle_id}；Location：{item.current_location}");
-                //}
-
-                //new MessageDialog(msg.ToString()).ShowAsync();
 
 
                 foreach (var temp in bicycle.Select(temp => current_location_parse(temp.current_location))
@@ -131,7 +119,9 @@ namespace 客户端
                     {
                         Latitude = temp.x,
                         Longitude = temp.y,
-                    })).Select(temp => new MapIcon() { Location = temp,
+                    })).Select(temp => new MapIcon()
+                    {
+                        Location = temp,
                         Image = RandomAccessStreamReference.
                      CreateFromUri(new Uri("ms-appx:///Assets/Bicycle.png")),
                     }))
@@ -215,7 +205,7 @@ namespace 客户端
                 // Add the new MapRouteView to the Routes collection
                 // of the MapControl.
                 map.Routes.Add(viewOfRoute);
-                
+
                 // Fit the MapControl to the route.
                 await map.TrySetViewBoundsAsync(
                       routeResult.Route.BoundingBox,
@@ -239,7 +229,7 @@ namespace 客户端
             Geopoint hintPoint = new Geopoint(queryHint);
 
             MapLocationFinderResult result =
-         await MapLocationFinder.FindLocationsAsync(address, hintPoint,1);
+         await MapLocationFinder.FindLocationsAsync(address, hintPoint, 1);
 
             map.Center = result.Locations[0].Point;
         }
@@ -332,15 +322,17 @@ namespace 客户端
 
         }
 
-        public bool useflag=false; //用于判断用车模拟点击地图画路线
+        public bool useflag = false; //用于判断用车模拟点击地图画路线
+        public string str; //用于记录输入的车牌号
 
         private async void UseBicycleButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as ToggleButton; //点击之后为ischecked==true
             //button.IsChecked
-            string bicycleId="";
-            if (button.IsChecked==true)
+            string bicycleId = "";
+            if (button.IsChecked == true)
             {
+
                 var content = new MyContentDialog();
                 ContentDialog con = new ContentDialog()
                 {
@@ -353,9 +345,13 @@ namespace 客户端
                 {
                     button.Content = "结束用车";
                     //获取输入
-                    var str = content.Text;
+                    str = content.Text;
                 };
-                con.SecondaryButtonClick += (s, a) => { button.IsChecked = false; };
+
+                con.SecondaryButtonClick += (s, a) =>
+                {
+                    button.IsChecked = false;
+                };
                 await con.ShowAsync();
                 useflag = true;
             }
@@ -363,19 +359,56 @@ namespace 客户端
             if (button.IsChecked == false) //结束用车时的点击
             {
                 button.Content = "用车";
-                useflag = false;
+                map.Routes.Clear();
+                using (SQLiteConnection conn = BicycleDatabase.GetDbConnection())
+                {
+                    TableQuery<Bicycle> t = conn.Table<Bicycle>();
+                    var q = (from p in t
+                             where p.bicycle_id == str
+                             select p).SingleOrDefault();
+                    //Debug.WriteLine(goalpoint.Position);
+                    q.current_location = goalpoint.Position.Latitude.ToString() + ","
+                        + goalpoint.Position.Longitude.ToString();
+                    conn.Update(q);
+                }
+                Bicycletest();
             }
             //Simulation.bicycleuse(this_account, bicycleId);
         }
 
         public Geopoint goalpoint;
 
+
         private async void map_MapTapped(MapControl sender, MapInputEventArgs args)
         {
             if (useflag == true)
             {
                 goalpoint = args.Location;
-                await routeCreateAsync(g1, goalpoint); //g1应为当前选择车辆的坐标
+                using (SQLiteConnection conn = BicycleDatabase.GetDbConnection())
+                {
+                    TableQuery<Bicycle> t = conn.Table<Bicycle>();
+                    var q = (from s in t
+                             where s.bicycle_id == str
+                             select s).SingleOrDefault();
+
+                    (double x, double y) current_location_parse(string current_location)
+                    {
+                        var str = current_location.Split(',');
+                        double.TryParse(str[0], out var x);
+                        double.TryParse(str[1], out var y);
+                        return (x, y);
+                    }
+
+                    Geopoint startpoint =
+                        new Geopoint(new BasicGeoposition()
+                        {
+                            Latitude = current_location_parse(q.current_location).x,
+                            Longitude = current_location_parse(q.current_location).y
+                        });
+                    await routeCreateAsync(startpoint, goalpoint); //g1应为当前选择车辆的坐标
+                    useflag = false;
+
+                }
             }
         }
     }

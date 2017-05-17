@@ -1,6 +1,8 @@
 ﻿using SQLite.Net;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,10 +29,13 @@ namespace 客户端.View
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+       
         public LoginPage()
         {
+          
             this.InitializeComponent();
-        }
+          
+            }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -39,7 +44,7 @@ namespace 客户端.View
             using (SQLiteConnection conn = UserDatabase.GetDbConnection())
             {
                 TableQuery<UserAccount> t = conn.Table<UserAccount>();
-                var q = from s in t.AsParallel<UserAccount>()
+                var q = from s in t
                         orderby s.user_id
                         select s;
 
